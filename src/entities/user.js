@@ -61,8 +61,8 @@ UserSchema.methods = {
 	 */
 	createToken() {
 		const date = new Date();
-		const timestamp = date.getTime() / 1000 + process.env.JWT_EXPIRATION;
-		const expiry_date = new Date(timestamp * 1000);
+		const timestamp = date.getTime() + parseInt(process.env.JWT_EXPIRATION, 10);
+		const expiry_date = new Date(timestamp);
 
 		return jwt.sign(
 			{

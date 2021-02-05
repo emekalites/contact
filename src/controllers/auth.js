@@ -48,7 +48,6 @@ const signup = async (req, res) => {
 
 		return res.status(201).json({ user: user.toJSON(), token });
 	} catch (err) {
-		console.log(err);
 		if (err.name == 'ValidationError') {
 			res.status(422).json(err);
 		} else {

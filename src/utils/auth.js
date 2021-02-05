@@ -1,12 +1,14 @@
 import passport from 'passport';
-import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
+import { Strategy, ExtractJwt } from 'passport-jwt';
+import User from '../entities/user';
+import logger from '../utils/logger';
 
 /**
  * JWT Strategy Auth
  */
-const jwtLogin = new JWTStrategy(
+const jwtLogin = new Strategy(
 	{
-		jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
+		jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 		secretOrKey: process.env.JWT_SECRET,
 	},
 	async (payload, done) => {

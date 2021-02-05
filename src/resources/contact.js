@@ -1,12 +1,13 @@
 import Contact from '../controllers/contact';
+import authJwt from '../utils/auth';
 
 /**
  * Contact api routes
  */
 module.exports = (app) => {
-	app.route('/contact/all').get(Contact.all);
-	app.route('/contact/get/:id').get(Contact.get);
-	app.route('/contact/create').post(Contact.create);
-	app.route('/contact/update/:id').put(Contact.update);
-	app.route('/contact/delete/:id').delete(Contact.remove);
+	app.get('/contact', authJwt, Contact.all);
+	app.get('/contact/:id', authJwt, Contact.get);
+	app.post('/contact/create', authJwt, Contact.create);
+	app.put('/contact/:id', authJwt, Contact.update);
+	app.delete('/contact/:id', authJwt, Contact.remove);
 };
