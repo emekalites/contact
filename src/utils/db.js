@@ -1,22 +1,26 @@
 import mongoose from 'mongoose';
-import logger from './logger'
+import logger from './logger';
 
 mongoose.Promise = global.Promise;
 
-const uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@ds215910.mlab.com:15910/contact`
-const dev = "dev"
-const connection = mongoose.connect(uri);
+const uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_URI}/contact`;
+const dev = process.env.NODE_ENV || 'development';
+
+const options = {
+	useNewUrlParser: true,
+	useUnifiedTopology: true,
+	useCreateIndex: true,
+};
+const connection = mongoose.connect(uri, options);
 
 connection
-	.then(db => {
+	.then((db) => {
 		logger.info(
-			`Successfully connected to ${uri} MongoDB cluster in ${
-			env
-			} mode.`,
+			`Successfully connected to ${uri} MongoDB cluster in ${dev} mode.`
 		);
 		return db;
 	})
-	.catch(err => {
+	.catch((err) => {
 		if (err.message.code === 'ETIMEDOUT') {
 			logger.info('Attempting to re-establish database connection.');
 			mongoose.connect(uri);
