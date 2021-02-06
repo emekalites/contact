@@ -57,7 +57,7 @@ Push the repo to your favourite repo platform and share the url.
 --
 DB_USER=\
 DB_PASS=\
-DB_URI=\
+DB_URI=ds215910.mlab.com:15910\
 NODE_ENV=development\
 JWT_SECRET=02e7060ac7fa9c6901edc0be4e0c916f5122e710ab42dff2e144127ae5770b9b\
 JWT_EXPIRATION=3600000\
