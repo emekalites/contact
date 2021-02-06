@@ -55,12 +55,12 @@ Push the repo to your favourite repo platform and share the url.
 
 .env
 --
-DB_USER=
-DB_PASS=
-DB_URI=
-NODE_ENV=development
-JWT_SECRET=02e7060ac7fa9c6901edc0be4e0c916f5122e710ab42dff2e144127ae5770b9b
-JWT_EXPIRATION=3600000
-SMTP_HOST=smtp.ethereal.email
-SMTP_USERNAME=jazlyn.abshire@ethereal.email
-SMTP_PASSWORD=6NCxwRbeEGsTVcj2KT
+DB_USER=\
+DB_PASS=\
+DB_URI=\
+NODE_ENV=development\
+JWT_SECRET=02e7060ac7fa9c6901edc0be4e0c916f5122e710ab42dff2e144127ae5770b9b\
+JWT_EXPIRATION=3600000\
+SMTP_HOST=smtp.ethereal.email\
+SMTP_USERNAME=\
+SMTP_PASSWORD=\
